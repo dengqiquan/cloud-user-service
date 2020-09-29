@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--导入属性配置 -->
+    <properties resource="mybatisGenerator.properties"></properties>
+    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="${spring.datasource.driverLocation}"/>
+
+    <context id="myContext" targetRuntime="MyBatis3" defaultModelType="flat">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 使用自带序列化插件 -->
+        <!--给Dao 添加@MApper-->
+        <plugin type="com.study.common.plugins.LombokPlugin"/>
+        <!--添加自定义类-->
+        <plugin type="com.study.common.plugins.AddClassPlugin"/>
+        <!--添加分页 limit offset-->
+        <plugin type="com.study.common.plugins.PagePlugin"/>
+        <!-- 使用自定义的插件 -->
+        <!-- optional，旨在创建class时，对注释进行控制 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <!--jdbc的数据库连接 -->
+        <jdbcConnection driverClass="${spring.datasource.driverClassName}" connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}" password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+
+        <javaModelGenerator targetPackage="com.cloud.study.entity" targetProject="src/main/java">
+            <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.cloud.study.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.cloud.study.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+
+        <table tableName="hr_role" domainObjectName="HrRole" mapperName="HrRoleDao"/>
+<!--        <table tableName="tb_brand" domainObjectName="TbBrand" mapperName="TbBrandDao"/>-->
+
+    </context>
+</generatorConfiguration>
