@@ -1,7 +1,7 @@
 package com.cloud.study.remote;
 
 import com.cloud.study.domain.EmployeeDto;
-import com.study.common.response.Response;
+import com.cloud.study.domain.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class EmployeeClientFallback implements EmployeeClient {
 
     @Override
-    public  Response<EmployeeDto> getEpUserByName(Integer id) {
+    public Response<EmployeeDto> getEpUserByName(Integer id) {
         Response response = new Response();
         response.failure("服务已熔断");
         System.out.println("**********************************************");

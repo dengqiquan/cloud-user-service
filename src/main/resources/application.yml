@@ -9,7 +9,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://139.155.49.169:3306/Vuehr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: deng@shu
+    password: root
+  sleuth:
+    sampler:
+      probability: 1.0
 eureka:
   instance:
     prefer-ip-address: true

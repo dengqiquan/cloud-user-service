@@ -1,7 +1,7 @@
 package com.cloud.study.controller;
 
-import com.study.common.response.Response;
-import com.study.common.response.enums.ResponseCodeEnum;
+import com.cloud.study.domain.Response;
+import com.cloud.study.enums.ResponseCodeEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

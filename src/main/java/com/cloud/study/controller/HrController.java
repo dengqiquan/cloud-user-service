@@ -3,13 +3,12 @@ package com.cloud.study.controller;
 import com.cloud.study.domain.EmployeeDto;
 import com.cloud.study.domain.HrDto;
 import com.cloud.study.domain.HrSearch;
+import com.cloud.study.domain.Response;
 import com.cloud.study.remote.EmployeeClient;
 import com.cloud.study.service.HrService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import com.study.common.response.Response;
-
 import java.util.List;
 
 /**

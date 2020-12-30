@@ -1,7 +1,7 @@
 package com.cloud.study.remote;
 
 import com.cloud.study.domain.EmployeeDto;
-import com.study.common.response.Response;
+import com.cloud.study.domain.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
