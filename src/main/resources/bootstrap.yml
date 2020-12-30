@@ -1,0 +1,17 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: user
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS-HOST:60.205.168.11}:${NACOS-PORT:8848}
+        file-extension: yml
+      discovery:
+        server-addr: ${NACOS-HOST:60.205.168.11}:${NACOS-PORT:8848}
+
+
+

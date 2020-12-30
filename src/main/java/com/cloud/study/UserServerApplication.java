@@ -5,10 +5,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * @Author deng
+ */
 @SpringBootApplication(scanBasePackages = "com.cloud.study")
 @MapperScan(basePackages = "com.cloud.study.dao")
 @EnableFeignClients(basePackages = "com.cloud.study")
-
 public class UserServerApplication {
 
     public static void main(String[] args) {
