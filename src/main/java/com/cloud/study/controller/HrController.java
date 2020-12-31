@@ -6,6 +6,10 @@ import com.cloud.study.domain.HrSearch;
 import com.cloud.study.domain.Response;
 import com.cloud.study.remote.EmployeeClient;
 import com.cloud.study.service.HrService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -16,6 +20,7 @@ import java.util.List;
 */
 
 @RestController
+@Api(tags ="HrController")
 public class HrController extends BaseController {
 
     @Resource
@@ -28,6 +33,8 @@ public class HrController extends BaseController {
     * @param hrDto
     * @return
     */
+    @ApiOperation(value = "新增hr", notes="新增hr")
+    @ApiImplicitParam(name = "hrDto", value = "hr实体", paramType = "query", required = true, dataType = "HrDto")
     @PostMapping("/add")
     public Response addHr(@RequestBody HrDto hrDto) {
         hrService.addHr(hrDto);

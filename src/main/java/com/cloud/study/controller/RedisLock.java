@@ -24,7 +24,8 @@ public class RedisLock {
     public String getLock(){
         RLock lock = redisson.getLock("my_lock");
         boolean b = lock.tryLock();
-        while (!b){//自旋
+        /*自选*/
+        while (!b){
             System.out.println(Thread.currentThread().getName()+"等待获取redis分布式锁");
             b = lock.tryLock();
         }
